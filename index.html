@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Layout Practice</title>
+        <style>
+            body{
+                font-family: 'Helvetica Neue', Helvetica, Arial, san-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+            }
+            header{
+                display: flex;
+                background-color: #28a745;
+                grid-template-columns: 1fr 1fr;
+                justify-content: space-between;
+            }
+            h3{
+                color: white;
+                padding: 15px 20px;
+                margin: 0;
+                font-size: 24px;
+                font-weight: bold;
+                align-items: center;
+            }
+            nav{
+                display: flex;
+                padding: 0 20px;
+                align-items: center;
+                gap: 10px;
+            }
+            #green{
+                color: #28a745;
+                font-weight: bold;
+                border-radius: 5px;
+                border: none;
+                padding: 0 12px;
+                margin: 0;
+                height: 35px;
+                cursor: pointer;
+            }
+            #green:hover{
+                background-color: #ffffff;
+            }
+            .flex{
+                background-color: #ffffff;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+                padding: 10px;
+                margin: 20px;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            #actions select{
+                width: 100px;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                padding:5px;              
+            }
+            .pagination{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+            .pagination button{
+                border-radius: 45px;
+                padding: 10px 20px;
+                border: none;
+            }
+            .edit{
+                display: flex;
+                align-items: center;
+            }
+            .edit select{
+                width: 130px;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                padding:6px;
+            }
+            .edit button{
+                background-color: transparent;
+                border: none;
+            }
+
+            .table-container{
+                background-color: #ffffff;
+                margin: 15px;
+                border-radius: 6px;
+                overflow-x: auto;
+                padding: 10px;
+                border: 1px solid #e0e0e0;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            table{
+                border-collapse:collapse;
+                width: 100%;
+                min-width: 1000px;
+            }
+            th, td{
+                border: 1px solid #ccc;
+                padding: 8px 12px;
+                white-space: nowrap;
+                text-align: center;
+            }
+            th{
+                background-color: #28a745;
+                color: white;
+            }
+            input{
+                width: 100%;
+                box-sizing: border-box;
+                border: none;
+                outline: none;
+                padding: 4px 6px;
+                font-size: 14px;
+            }
+            #sizer{
+                position: absolute;
+                visibility: hidden;
+                white-space: pre;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3>Ananta Realty - Leads</h3>
+            <nav>
+                <button id="green">+ Add</button>
+                <button id="green">🗑️ Delete</button>
+                <button id="green">🔍 Search</button>
+                <button id="green">🔻More Actions</button>
+            </nav>
+        </header>
+
+        <section class="flex">
+            <div id="actions">
+            <label>Records per page</label>
+            <select>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+            </div>
+
+            <div class="pagination">
+                <button>&laquo;</button>
+                <span>1-0/0</span>
+                <button>&raquo;</button>
+                <button>🔃Refresh</button>
+            </div>
+            <div class="edit">
+                <select>
+                    <option>Default</option>
+                    <option>Custom View 1</option>
+                </select>
+                <button id="addBtn" onclick="addRow()">➕</button>
+                <button>✏️</button>
+                <button>⬜</button>
+            </div>
+        </section>
+
+        <div class="table-container">
+            <table id="leadsTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" /></th>
+                        <th>Lead Owner</th>
+                        <th>Contact Name</th>
+                        <th>Mobile Number</th>
+                        <th>Lead Stage</th>
+                        <th>Category</th>
+                        <th>Lead Source</th>
+                        <th>Lead Date</th>
+                        <th>Expected Closing Date</th>
+                        <th>Next Follow Up On</th>
+                        <th>Lead Stage</th>
+                        <th>Expected Revenue</th>
+                        <th>Expected Closing Date</th>
+                        <th>Next Follow Up On</th>
+                        <th>Expected Closing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                        <td><input type="text" onclick="resizeInput()"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <span id="sizer"></span>
+        <script>
+            const sizer= document.getElementById("sizer");
+            function resizeInput(input){
+                sizer.style.font = getComputedStyle(input).font;
+                sizer.textContent = input.value || input.placeholder || "";
+                const newWidth = sizer.offsetWidth + 20;
+                input.style.width = newWidth + "px";
+            }
+            function addRow(){
+                const tableBody = document.getElementById("leadsTable").getElementsByTagName("tbody")[0];
+                const firstRow = tableBody.rows[0];
+                const newRow = firstRow.cloneNode(true);
+
+                const inputs = newRow.querySelectorAll("input");
+                inputs.forEach(input => {
+                    input.value = "";
+                    input.style.width = "100px";
+                    input.addEventListener("input", function(){
+                        resizeInput(this);
+                    });
+                });
+                tableBody.appendChild(newRow);
+            }
+            document.querySelectorAll("input").forEach(input =>{
+                input.addEventListener("input", function(){
+                    resizeInput(this);
+                });
+            });
+        </script>
+    </body>
+</html>
